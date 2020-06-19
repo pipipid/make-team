@@ -19,9 +19,8 @@ async def on_ready():
     print(discord.__version__)
     print('------------------------')
 
-""" メッセージ受信 """
-@client.event
-async def on_message(message):
+@bot.command()
+async def on_message(ctx, message):
     if message.author.bot:
         return
     if message.content == 'neko':
