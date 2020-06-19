@@ -29,7 +29,7 @@ async def delete_mem(ctx, member_name=''):
     global old_team_2
 
     make_team = MakeTeam()
-    msg, remainder, team_1, team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
+    msg, remainder, team_1, team_2 = make_team.splice_team_member(member_name, old_remainder, old_team_1, old_team_2)
 
     old_remainder = remainder
     old_team_1 = team_1
