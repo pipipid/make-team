@@ -8,6 +8,9 @@ from modules.grouping import MakeTeam
 
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='/')
+old_team_1 = []
+old_team_2 = []
+old_remainder = []
 
 """起動処理"""
 @bot.event
@@ -18,18 +21,19 @@ async def on_ready():
     print(discord.__version__)
     print('------------------------')
 
-""" メッセージ受信時に動作する処理 """
-@bot.command()
-async def neko(ctx, message='にゃーん'):
-    await ctx.channel.send('にゃーん')
-
 """コマンド実行"""
+@bot.command()
+async def delete_mem(ctx, member_name=''):
+    make_team = MakeTeam()
+    msg, old_remainder, old_team_1, old_team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
+    await ctx.channel.send(msg)
+
 # メンバー数が均等になるチーム分け
 @bot.command()
 async def team(ctx, specified_num=2):
     make_team = MakeTeam()
     remainder_flag = 'true'
-    msg = make_team.make_party_num(ctx,specified_num,remainder_flag)
+    msg, old_remainder, old_team_1, old_team_2 = make_team.make_party_num(ctx,specified_num,remainder_flag)
     await ctx.channel.send(msg)
 
 # メンバー数が均等にはならないチーム分け

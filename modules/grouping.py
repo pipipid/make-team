@@ -48,8 +48,9 @@ class MakeTeam:
         for i in range(party_num): 
             team.append("=====チーム"+str(i+1)+"=====")
             team.extend(self.channel_mem[i:self.mem_len:party_num])
+            tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num]
 
-        return ('\n'.join(team))
+        return ('\n'.join(team), remainder, tmp_teams[0], tmp_teams[1])
 
     # チームのメンバー数を指定した場合のチーム分け
     def make_specified_len(self, ctx, specified_len):
@@ -83,3 +84,20 @@ class MakeTeam:
             team.extend(self.channel_mem[i:self.mem_len:party_num])
 
         return ('\n'.join(team))
+    
+    def splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2):
+        if member_name == '':
+            return
+
+        remainder = [i for i in old_remainder if i != member_name]
+        team_1 = [i for i in old_team_1 if i != member_name]
+        team_2 = [i for i in old_team_2 if i != member_name]
+
+        team.append("=====余り=====")
+        team.extend(remainder)
+        team.append("=====チーム1=====")
+        team.extend(team_1)
+        team.append("=====チーム2=====")
+        team.extend(team_2)
+
+        return ['\n'.join(team), remainder, team_1, team_2]
