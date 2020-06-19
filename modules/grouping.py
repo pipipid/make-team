@@ -93,7 +93,7 @@ class MakeTeam:
         team_1 = [i for i in old_team_1 if i != member_name]
         team_2 = [i for i in old_team_2 if i != member_name]
 
-        team.append("=====余り=====")
+        team = "=====余り====="
         team.extend(remainder)
         team.append("=====チーム1=====")
         team.extend(team_1)
