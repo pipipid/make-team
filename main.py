@@ -8,6 +8,7 @@ from modules.grouping import MakeTeam
 
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='/')
+client = discord.Client()
 
 """起動処理"""
 @bot.event
@@ -18,7 +19,7 @@ async def on_ready():
     print(discord.__version__)
     print('------------------------')
 
-""" メッセージ受信時に動作する処理 """
+""" メッセージ受信 """
 @client.event
 async def on_message(message):
     if message.author.bot:
