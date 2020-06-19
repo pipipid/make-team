@@ -92,8 +92,8 @@ class MakeTeam:
             return
 
         remainder = [i for i in old_remainder if i != member_name]
-        team_1 = [j for j in old_team_1 if j != member_name]
-        team_2 = [k for k in old_team_2 if k != member_name]
+        team_1 = [i for i in old_team_1 if i != member_name]
+        team_2 = [i for i in old_team_2 if i != member_name]
 
         team.append("=====余り=====")
         team.extend(remainder)
@@ -101,5 +101,7 @@ class MakeTeam:
         team.extend(team_1)
         team.append("=====チーム2=====")
         team.extend(team_2)
+
+        print(team)
 
         return [('\n'.join(team)), remainder, team_1, team_2]
