@@ -17,6 +17,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print(discord.__version__)
+    print("aaaaaa")
     print(client)
     print('------------------------')
 
