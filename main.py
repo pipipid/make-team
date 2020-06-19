@@ -8,7 +8,6 @@ from modules.grouping import MakeTeam
 
 token = os.environ['DISCORD_BOT_TOKEN']
 bot = commands.Bot(command_prefix='/')
-client = discord.Client()
 
 """起動処理"""
 @bot.event
@@ -17,13 +16,12 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print(discord.__version__)
-    print("aaaaaa")
-    print(client)
     print('------------------------')
 
 """ メッセージ受信時に動作する処理 """
-@client.event
-async def on_message(message):
+@bot.command()
+async def neko(ctx, message):
+    print(message)
     if message.author.bot:
         return
     if message.content == 'neko':
