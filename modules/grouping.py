@@ -48,7 +48,7 @@ class MakeTeam:
         for i in range(party_num): 
             team.append("=====チーム"+str(i+1)+"=====")
             team.extend(self.channel_mem[i:self.mem_len:party_num])
-            tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num]
+            tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num])
 
         return [('\n'.join(team)), remainder, tmp_teams[0], tmp_teams[1]]
 
