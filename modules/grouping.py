@@ -23,7 +23,8 @@ class MakeTeam:
     # チーム数を指定した場合のチーム分け
     def make_party_num(self, ctx, party_num, remainder_flag='false'):
         team = []
-        tmp_teams = []
+        team_1 = []
+        team_2 = []
         remainder = []
         
         if self.set_mem(ctx) is False:
@@ -49,11 +50,12 @@ class MakeTeam:
         for i in range(party_num): 
             team.append("=====チーム"+str(i+1)+"=====")
             team.extend(self.channel_mem[i:self.mem_len:party_num])
-            tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num])
-            
-        print(tmp_teams)
+            if i == 0:
+                team_1.extend(self.channel_mem[i:self.mem_len:party_num])
+            if i == 1:
+                team_2.extend(self.channel_mem[i:self.mem_len:party_num])
 
-        return [('\n'.join(team)), remainder, tmp_teams[0], tmp_teams[1]]
+        return [('\n'.join(team)), remainder, team_1, team_2]
 
     # チームのメンバー数を指定した場合のチーム分け
     def make_specified_len(self, ctx, specified_len):
