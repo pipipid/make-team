@@ -17,6 +17,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print(discord.__version__)
+    print(client)
     print('------------------------')
 
 """ メッセージ受信時に動作する処理 """
@@ -25,7 +26,6 @@ async def on_message(message):
     if message.author.bot:
         return
     if message.content == 'neko':
-        print("にゃーん")
         await message.channel.send('にゃーん')
 
 """コマンド実行"""
