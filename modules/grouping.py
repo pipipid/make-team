@@ -50,7 +50,7 @@ class MakeTeam:
             team.extend(self.channel_mem[i:self.mem_len:party_num])
             tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num]
 
-        return ('\n'.join(team), remainder, tmp_teams[0], tmp_teams[1])
+        return (('\n'.join(team)), remainder, tmp_teams[0], tmp_teams[1])
 
     # チームのメンバー数を指定した場合のチーム分け
     def make_specified_len(self, ctx, specified_len):
@@ -100,4 +100,4 @@ class MakeTeam:
         team.append("=====チーム2=====")
         team.extend(team_2)
 
-        return ['\n'.join(team), remainder, team_1, team_2]
+        return [('\n'.join(team)), remainder, team_1, team_2]
