@@ -41,13 +41,5 @@ async def group(ctx, specified_num=1):
     msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
-
-
 """botの接続と起動"""
 bot.run(token)
