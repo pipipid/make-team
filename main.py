@@ -18,6 +18,13 @@ async def on_ready():
     print(discord.__version__)
     print('------------------------')
 
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        return
+    if message.content == '/neko':
+        await message.channel.send('にゃーん')
+
 """コマンド実行"""
 # メンバー数が均等になるチーム分け
 @bot.command()
