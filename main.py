@@ -20,12 +20,8 @@ async def on_ready():
 
 """ メッセージ受信時に動作する処理 """
 @bot.command()
-async def neko(ctx, message):
-    print(message)
-    if message.author.bot:
-        return
-    if message.content == 'neko':
-        await message.channel.send('にゃーん')
+async def neko(ctx, message='にゃーん'):
+    await ctx.channel.send('にゃーん')
 
 """コマンド実行"""
 # メンバー数が均等になるチーム分け
