@@ -25,7 +25,10 @@ async def on_ready():
 @bot.command()
 async def delete_mem(ctx, member_name=''):
     make_team = MakeTeam()
-    msg, global old_remainder, global old_team_1, global old_team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
+    msg, old_remainder, old_team_1, old_team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
+    global old_remainder = old_remainder
+    global old_team_1 = old_team_1
+    global old_team_2 = old_team_2
     await ctx.channel.send(msg)
 
 # メンバー数が均等になるチーム分け
@@ -33,7 +36,10 @@ async def delete_mem(ctx, member_name=''):
 async def team(ctx, specified_num=2):
     make_team = MakeTeam()
     remainder_flag = 'true'
-    msg, global old_remainder, global old_team_1, global old_team_2 = make_team.make_party_num(ctx,specified_num,remainder_flag)
+    msg, old_remainder, old_team_1, old_team_2 = make_team.make_party_num(ctx,specified_num,remainder_flag)
+    global old_remainder = old_remainder
+    global old_team_1 = old_team_1
+    global old_team_2 = old_team_2
     await ctx.channel.send(msg)
 
 # メンバー数が均等にはならないチーム分け
