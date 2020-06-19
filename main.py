@@ -41,5 +41,4 @@ async def group(ctx, specified_num=1):
     msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
 
-"""botの接続と起動"""
 bot.run(token)
