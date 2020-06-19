@@ -24,22 +24,34 @@ async def on_ready():
 """コマンド実行"""
 @bot.command()
 async def delete_mem(ctx, member_name=''):
+    global old_remainder
+    global old_team_1
+    global old_team_2
+
     make_team = MakeTeam()
-    msg, old_remainder, old_team_1, old_team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
-    global old_remainder = old_remainder
-    global old_team_1 = old_team_1
-    global old_team_2 = old_team_2
+    msg, remainder, team_1, team_2 = make_team.splice_team_member(ctx, member_name, old_remainder, old_team_1, old_team_2)
+
+    old_remainder = remainder
+    old_team_1 = team_1
+    old_team_2 = team_2
+
     await ctx.channel.send(msg)
 
 # メンバー数が均等になるチーム分け
 @bot.command()
 async def team(ctx, specified_num=2):
+    global old_remainder
+    global old_team_1
+    global old_team_2
+
     make_team = MakeTeam()
     remainder_flag = 'true'
-    msg, old_remainder, old_team_1, old_team_2 = make_team.make_party_num(ctx,specified_num,remainder_flag)
-    global old_remainder = old_remainder
-    global old_team_1 = old_team_1
-    global old_team_2 = old_team_2
+    msg, remainder, team_1, team_2 = make_team.make_party_num(ctx,specified_num,remainder_flag)
+
+    old_remainder = remainder
+    old_team_1 = team_1
+    old_team_2 = team_2
+
     await ctx.channel.send(msg)
 
 # メンバー数が均等にはならないチーム分け
