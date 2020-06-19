@@ -50,6 +50,8 @@ class MakeTeam:
             team.append("=====チーム"+str(i+1)+"=====")
             team.extend(self.channel_mem[i:self.mem_len:party_num])
             tmp_teams.extend(self.channel_mem[i:self.mem_len:party_num])
+            
+        print(tmp_teams)
 
         return [('\n'.join(team)), remainder, tmp_teams[0], tmp_teams[1]]
 
@@ -102,7 +104,5 @@ class MakeTeam:
         team.extend(team_1)
         team.append("=====チーム2=====")
         team.extend(team_2)
-
-        print(team)
 
         return [('\n'.join(team)), remainder, team_1, team_2]
