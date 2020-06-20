@@ -22,6 +22,11 @@ async def on_ready():
     print('------------------------')
 
 """コマンド実行"""
+# @bot.command()
+# async def shuffle_mem(ctx):
+#     make_team = MakeTeam()
+#     await ctx.channel.sed(msg)
+
 @bot.command()
 async def delete_mem(ctx, member_name=''):
     global old_remainder
