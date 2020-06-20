@@ -101,12 +101,12 @@ class MakeTeam:
         team_2 = [i for i in old_team_2 if i != member_name]
 
         if remainder:
-            team.append("***** 余り *****")
+            team.append("=====余り=====")
             team.extend(remainder)
 
-        team.append("***** チーム1 *****")
+        team.append("=====チーム1=====")
         team.extend(team_1)
-        team.append("***** チーム2 *****")
+        team.append("=====チーム2=====")
         team.extend(team_2)
 
         return [('\n'.join(team)), remainder, team_1, team_2]
