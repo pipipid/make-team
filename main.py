@@ -44,7 +44,7 @@ async def delete_mem(ctx, member_name=''):
 
 # メンバー数が均等になるチーム分け
 @bot.command()
-async def team(ctx, specified_num=2, member_names):
+async def team(ctx, specified_num=2, member_names=''):
     global old_remainder
     global old_team_1
     global old_team_2
