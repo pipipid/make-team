@@ -36,7 +36,7 @@ class MakeTeam:
 
         # 指定されたメンバーを追加、削除
         if member_names != '':
-            for m in member_names.strip('[]').replace(' ', '').split(',')
+            for m in member_names.strip('[]').replace(' ', '').split(','):
                 if '-' in m:
                     self.channel_mem.remove(m.strip('-'))
                 if '+' in m:
