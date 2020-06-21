@@ -40,7 +40,7 @@ class MakeTeam:
                 if '-' in m:
                     self.channel_mem.remove(m.strip('-'))
                 if '+' in m:
-                    self.channel_mem.join(m.strip('+')) 
+                    self.channel_mem.append(m.strip('+')) 
 
         # メンバーリストをシャッフル
         random.shuffle(self.channel_mem)
