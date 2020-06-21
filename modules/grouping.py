@@ -21,7 +21,7 @@ class MakeTeam:
         return True
 
     # チーム数を指定した場合のチーム分け
-    def make_party_num(self, ctx, party_num, remainder_flag='false', member_names):
+    def make_party_num(self, ctx, party_num, remainder_flag='false', member_names=''):
         team = []
         team_1 = []
         team_2 = []
