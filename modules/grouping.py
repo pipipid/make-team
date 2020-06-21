@@ -21,7 +21,7 @@ class MakeTeam:
         return True
 
     # チーム数を指定した場合のチーム分け
-    def make_party_num(self, ctx, party_num, remainder_flag='false'):
+    def make_party_num(self, ctx, party_num, remainder_flag='false', member_names):
         team = []
         team_1 = []
         team_2 = []
@@ -33,6 +33,14 @@ class MakeTeam:
         # 指定数の確認
         if party_num > self.mem_len or party_num <= 0:
             return '実行できません。チーム分けできる数を指定してください。(チーム数を指定しない場合は、デフォルトで2が指定されます)'
+
+        # 指定されたメンバーを追加、削除
+        if member_names != '':
+            for m in member_names.strip('[]').replace(' ', '').split(',')
+                if '-' in m:
+                    self.channel_mem.remove(m.strip('-'))
+                if '+' in m:
+                    self.channel_mem.join(m.strip('+')) 
 
         # メンバーリストをシャッフル
         random.shuffle(self.channel_mem)
