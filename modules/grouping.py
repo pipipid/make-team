@@ -26,7 +26,6 @@ class MakeTeam:
         team_1 = []
         team_2 = []
         remainder = []
-        designation_member_names = []
         
         if self.set_mem(ctx) is False:
             return self.vc_state_err
@@ -37,8 +36,8 @@ class MakeTeam:
 
         # 指定されたメンバーを追加、削除
         if member_names != '':
-            designation_member_names = member_names.strip('[]').replace(' ', '').split(',')
-            for m in designation_member_names:
+            for m in member_names.strip('[]').replace(' ', '').split(','):
+                print(m, member_names)
                 if '-' in m:
                     self.channel_mem.remove(m.strip('-'))
                 if '+' in m:
